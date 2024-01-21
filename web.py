@@ -4,7 +4,6 @@
 
 
 from transformers import AutoModelForQuestionAnswering, AutoTokenizer, pipeline
-from langchain.utilities import WikipediaAPIWrapper
 import streamlit as st
 
 st.title("BERT İle Türkçe Soru Cevaplama Sistemi")
@@ -26,7 +25,6 @@ context_input = st.text_area("Metin: ")
 if question_input and context_input:
   #keywords = question_input.split()
 
-
   QA_input = {
       'question': question_input,
       'context': context_input
@@ -41,8 +39,8 @@ if question_input and context_input:
 
 #!streamlit run streamlitDemoColab.py &>/content/logs.txt &
 
-import urllib
-print("Password/Enpoint IP for localtunnel is:",urllib.request.urlopen('https://ipv4.icanhazip.com').read().decode('utf8').strip("\n"))
+#import urllib
+#print("Password/Enpoint IP for localtunnel is:",urllib.request.urlopen('https://ipv4.icanhazip.com').read().decode('utf8').strip("\n"))
 
 #!npx localtunnel --port 8501
 
