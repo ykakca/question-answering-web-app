@@ -6,7 +6,7 @@
 from transformers import AutoModelForQuestionAnswering, AutoTokenizer, pipeline
 import streamlit as st
 
-@st.cache(ttl=24*3600)
+@st.cache
 
 st.title("BERT İle Türkçe Soru Cevaplama Sistemi")
 st.divider()
