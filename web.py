@@ -14,10 +14,14 @@ st.caption("Yıldız Teknik Üniversitesi")
 st.caption("Bilgisayar Mühendisliği Bölümü Bitirme Projesi")
 st.caption("Selin Tipi, 19011051 - Yiğit Kağan Akça, 19011103")
 
-
-model_name = "ykakca/bert-bitirme-128k"
-model = AutoModelForQuestionAnswering.from_pretrained(model_name)
-tokenizer = AutoTokenizer.from_pretrained(model_name)
+@st.cache_resource
+def load_model():
+  model_name = "ykakca/bert-bitirme-128k"
+  model = AutoModelForQuestionAnswering.from_pretrained(model_name)
+  tokenizer = AutoTokenizer.from_pretrained(model_name)
+  return model, tokenizer
+  
+model, tokenizer = load_model()
 
 nlp = pipeline('question-answering', model=model, tokenizer=tokenizer)
 
